@@ -19,9 +19,8 @@ See the section about [running tests](#running-tests) for more information.
 
 ## Following Steps
 
-### `Connect the numbers' onClick function with screen`
-### `Pin shuld be hidden except for the last number (4 digits long)`
-### `Read pin from an API`
-### `Whether the pin is correct ? (display: OK) : (display: ERROR)`
-### `After 3 wrong attempts the pinpad locks for 30 secs, showing LOCKED on the display
-Design requirement`
+1. Connect the numbers' onClick function with screen
+2. Pin shuld be hidden except for the last number (4 digits long)
+3. Read pin from an API
+4. Whether the pin is correct ? (display: OK) : (display: ERROR)
+5. After 3 wrong attempts the pinpad locks for 30 secs, showing LOCKED on the display
