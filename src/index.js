@@ -82,7 +82,6 @@ class EnterPin extends React.Component {
   }
 }
 
-
 ReactDOM.render(
   <EnterPin />,
   document.getElementById('root')
