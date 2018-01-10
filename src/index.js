@@ -10,8 +10,9 @@ class Board extends React.Component {
       randomPins: ''
     };
 
-    this.handleButtonClick = this.handleButtonClick.bind(this)
-    this.clearCode = this.clearCode.bind(this)
+    this.handleButtonClick = this.handleButtonClick.bind(this);
+    this.clearCode = this.clearCode.bind(this);
+    this.checkPin = this.checkPin.bind(this);
   }
 
   handleButtonClick(e) {
@@ -32,7 +33,16 @@ class Board extends React.Component {
 
   checkPin() {
     // Set up for checking pin with API later
-    console.log('hey');
+    let code = this.state.code;
+    if (code.split('').length === 4 && code === '***4') {
+      alert('The PIN is OK. Ready for reset.');
+      this.setState({ code: '' });
+    } else if (code.split('').length === 4 && code !== '***4') {
+      alert('ERROR. The PIN will be reset.');
+      this.setState({ code: '' });
+    } else {
+      alert('Please enter a valid PIN!.');
+    }
   }
 
   clearCode() {
@@ -67,9 +77,6 @@ class EnterPin extends React.Component {
         <div className="pin-board">
           <Board />
         </div>
-        <div className="pin-info">
-          <div>{/* status */}</div>
-        </div>
       </div>
     );
   }
@@ -80,3 +87,5 @@ ReactDOM.render(
   <EnterPin />,
   document.getElementById('root')
 );
+
+export default EnterPin;
