@@ -5,9 +5,9 @@ import './index.css';
 class Board extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
-      code: ''
+      code: '',
+      randomPins: ''
     };
 
     this.handleButtonClick = this.handleButtonClick.bind(this)
@@ -15,20 +15,34 @@ class Board extends React.Component {
   }
 
   handleButtonClick(e) {
-    const value = e.target.value
-    let code = this.state.code
-    code += value
-    this.setState({ code: code })
+    const value = e.target.value;
+    let code = this.state.code;
+    code += value;
+
+    if (code.split('').length === 1) {
+      this.setState({ code: code });
+    } else if (code.split('').length === 2) {
+      this.setState({ code: '*' + code.split('')[1] });
+    } else if (code.split('').length === 3) {
+      this.setState({ code: '**' + code.split('')[2] });
+    } else if (code.split('').length === 4) {
+      this.setState({ code: '***' + code.split('')[3] });
+    }
+  }
+
+  checkPin() {
+    // Set up for checking pin with API later
+    console.log('hey');
   }
 
   clearCode() {
-    this.setState({ code: '' })
+    this.setState({ code: '' });
   }
 
   render() {
     return (
       <div>
-        <p className='screen'> {this.state.code}</p>
+        <p className='screen'>{this.state.code}</p>
         <button className='square' value={7} onClick={this.handleButtonClick}>7</button>
         <button className='square' value={8} onClick={this.handleButtonClick}>8</button>
         <button className='square' value={9} onClick={this.handleButtonClick}>9</button>
@@ -40,72 +54,11 @@ class Board extends React.Component {
         <button className='square' value={3} onClick={this.handleButtonClick}>3</button>
         <button className='square' onClick={this.clearCode}>clear</button>
         <button className='square' value={0} onClick={this.handleButtonClick}>0</button>
-        <button className='square' onClick={this.clearCode}>OK</button>
+        <button className='square' onClick={this.checkPin}>OK</button>
       </div>
     );
   }
 }
-
-// class Board extends React.Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       squares: Array(12),
-//     };
-//   }
-//   handleClick(i) {
-//     const squares = this.state.squares.slice();
-//     squares[i] = i;
-//     this.setState({ squares });
-//   }
-//   renderSquare(i) {
-//     return (
-//       <Square
-//         className='square'
-//         value={this.state.squares[i]}
-//         onClick={() => this.handleClick(i)}
-//       />
-//     );
-//   }
-//   handleButtonOnClick(e) {
-//     e.preventDefault();
-//     // const screen = [];
-//     const input = e.target.value;
-//     // screen.push(input);
-//     console.log(input);
-//   }
-//   render() {
-//     return (
-//       <div>
-//         <form>
-//           <div className="screen" type='password' name='option'>
-//             <Screen />
-//           </div>
-//           <div className="board-row">
-//             <button className='square' value='7' onClick={this.handleButtonOnClick}>7</button>
-//             <button className='square' value='8' onClick={this.handleButtonOnClick}>8</button>
-//             <button className='square' value='9' onClick={this.handleButtonOnClick}>9</button>
-//           </div>
-//           <div className="board-row">
-//             <button className='square' value='4' onClick={this.handleButtonOnClick}>4</button>
-//             <button className='square' value='5' onClick={this.handleButtonOnClick}>5</button>
-//             <button className='square' value='6' onClick={this.handleButtonOnClick}>6</button>
-//           </div>
-//           <div className="board-row">
-//             <button className='square' value='7' onClick={this.handleButtonOnClick}>1</button>
-//             <button className='square' value='8' onClick={this.handleButtonOnClick}>2</button>
-//             <button className='square' value='9' onClick={this.handleButtonOnClick}>3</button>
-//           </div>
-//           <div className="board-row">
-//             <button className='square' id='clear' onClick={() => alert('click')}>X</button>
-//             <button className='square' value='0' onClick={this.handleButtonOnClick}>0</button>
-//             <button className='square' id='confirm' type='submit' value='Submit'>OK</button>
-//           </div>
-//         </form>
-//       </div>
-//     );
-//   }
-// }
 
 class EnterPin extends React.Component {
   render() {

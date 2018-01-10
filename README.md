@@ -1,5 +1,3 @@
-This project was bootstrapped with [Create React App].
-
 ## Available Scripts
 
 In the project directory, you can run:
@@ -19,9 +17,7 @@ See the section about [running tests](#running-tests) for more information.
 
 ## Following Steps
 
-1. Connect the numbers' onClick function with screen
-2. Pin shuld be hidden except for the last number (4 digits long)
-3. Read pin from an API
-4. Whether the pin is correct ? (display: OK) : (display: ERROR)
-5. After 3 wrong attempts the pinpad locks for 30 secs, showing LOCKED on the display
-6. Write test code
+1. Check pin with an API later
+2. Whether the pin is correct ? (display: OK) : (display: ERROR)
+3. After 3 wrong attempts the pinpad locks for 30 secs, showing LOCKED on the display
+4. Write test code
