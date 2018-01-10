@@ -1,0 +1,64 @@
+body {
+  font: 14px "Century Gothic", Futura, sans-serif;
+  margin: 20px;
+  background-color: #48C0D3;
+}
+
+.board-row:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.pin-input {
+  margin-bottom: 10px;
+  width: 240px;
+  height: 40px;
+  font-size: 24px;
+  text-align: center;
+  background-color: white;
+  border-radius: 5px;
+}
+
+.square {
+  background: #fff;
+  border: 1px solid #999;
+  float: left;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 34px;
+  height: 80px;
+  margin-right: -1px;
+  margin-top: -1px;
+  padding: 15px;
+  border-radius: 5px;
+  text-align: center;
+  width: 80px;
+}
+.square:hover {
+  box-shadow: #506CE8 0 0 1px 1px;
+}
+
+.square:focus {
+  outline: none;
+}
+
+.kbd-navigation .square:focus {
+  background: #ddd;
+}
+
+.pin {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: #DEDEDE;
+  padding: 50px 0px 60px 60px;
+  width: 300px;
+  border-radius: 35px;
+  margin-top: 10%;
+  margin-left: 35%;
+}
+
+.pin-info {
+  margin-left: 20px;
+}
