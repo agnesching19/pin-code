@@ -29,7 +29,7 @@ class Board extends React.Component {
   handleClick(i) {
     const squares = this.state.squares.slice();
     squares[i] = i;
-    this.setState({squares: squares});
+    this.setState({ squares });
   }
   renderSquare(i) {
     return (
@@ -55,10 +55,9 @@ class Board extends React.Component {
   render() {
     // const status = '****';
     return (
-
       <div>
         <form>
-          <input className="pin-input" type='text' name='option' />
+          <div className="screen" type='text' name='option'>****</div>
           <div className="board-row">
             {this.renderSquare(7)}
             {this.renderSquare(8)}
@@ -75,9 +74,9 @@ class Board extends React.Component {
             {this.renderSquare(3)}
           </div>
           <div className="board-row">
-            {this.renderSquare('clear')}
+            {this.renderSquare('X')}
             {this.renderSquare(0)}
-            <button className='square'>enter</button>
+            <button className='square'>OK</button>
           </div>
         </form>
       </div>
