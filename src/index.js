@@ -2,22 +2,21 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-// class Square extends React.Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       value: this.props.value,
-//       name: this.props.name,
-//     };
-//   }
-//   render() {
-//     return (
-//       <button className="square" name={this.props.name} onClick={this.props.onClick}>
-//         {this.props.value}
-//       </button>
-//     );
-//   }
-// }
+class Square extends React.Component {
+   constructor(props) {
+    super(props);
+    this.state = {
+      value: this.props.value,
+    };
+  }
+  render() {
+    return (
+      <button className="square" onClick={() => alert('click')}>
+        {this.props.value}
+      </button>
+    );
+  }
+}
 
 class Board extends React.Component {
   constructor(props) {
@@ -33,50 +32,46 @@ class Board extends React.Component {
   }
   renderSquare(i) {
     return (
-      <button
+      <Square
         className='square'
         value={this.state.squares[i]}
         onClick={() => this.handleClick(i)}
-      >
-        {i}
-      </button>
+      />
     );
   }
-  handleEnterPin(i) {
-    let pinCount
-    let status = ''
-
-    if (pinCount === 0) {
-      pinCount ++;
-      status = this.handleClick(i).text();
-    }
-    return status;
+  handleButtonOnClick(e) {
+    e.preventDefault();
+    // const screen = [];
+    const input = e.target.value;
+    // screen.push(input);
+    console.log(input);
   }
   render() {
-    // const status = '****';
     return (
       <div>
         <form>
-          <div className="screen" type='text' name='option'>****</div>
-          <div className="board-row">
-            {this.renderSquare(7)}
-            {this.renderSquare(8)}
-            {this.renderSquare(9)}
+          <div className="screen" type='password' name='option'>
+            <p>****</p>
           </div>
           <div className="board-row">
-            {this.renderSquare(4)}
-            {this.renderSquare(5)}
-            {this.renderSquare(6)}
+            <button className='square' value='7' onClick={this.handleButtonOnClick}>7</button>
+            <button className='square' value='8' onClick={this.handleButtonOnClick}>8</button>
+            <button className='square' value='9' onClick={this.handleButtonOnClick}>9</button>
           </div>
           <div className="board-row">
-            {this.renderSquare(1)}
-            {this.renderSquare(2)}
-            {this.renderSquare(3)}
+            <button className='square' value='4' onClick={this.handleButtonOnClick}>4</button>
+            <button className='square' value='5' onClick={this.handleButtonOnClick}>5</button>
+            <button className='square' value='6' onClick={this.handleButtonOnClick}>6</button>
           </div>
           <div className="board-row">
-            {this.renderSquare('X')}
-            {this.renderSquare(0)}
-            <button className='square'>OK</button>
+            <button className='square' value='7' onClick={this.handleButtonOnClick}>1</button>
+            <button className='square' value='8' onClick={this.handleButtonOnClick}>2</button>
+            <button className='square' value='9' onClick={this.handleButtonOnClick}>3</button>
+          </div>
+          <div className="board-row">
+            <button className='square' id='clear' onClick={() => alert('click')}>X</button>
+            <button className='square' value='0' onClick={this.handleButtonOnClick}>0</button>
+            <button className='square' id='confirm' type='submit' value='Submit'>OK</button>
           </div>
         </form>
       </div>
@@ -93,7 +88,6 @@ class EnterPin extends React.Component {
         </div>
         <div className="pin-info">
           <div>{/* status */}</div>
-
         </div>
       </div>
     );

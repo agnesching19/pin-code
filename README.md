@@ -24,3 +24,4 @@ See the section about [running tests](#running-tests) for more information.
 3. Read pin from an API
 4. Whether the pin is correct ? (display: OK) : (display: ERROR)
 5. After 3 wrong attempts the pinpad locks for 30 secs, showing LOCKED on the display
+6. Write test code
